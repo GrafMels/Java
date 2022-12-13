@@ -9,6 +9,7 @@ public class Project001{
     public static int b;
     public static long c;
     public static String inp;
+    public static double c_double = 0;
     public static Scanner Scan = new Scanner(System.in);//Открыл сканер как глобальную переменную что бы закрыть по окончанию main
     public static void main(String[] args) {
         input();
@@ -20,7 +21,14 @@ public class Project001{
         } else {
             get_a_b();
             c = exponentiation(a, b);
-            System.out.print(a + " ^ " + b + " = " + c);
+            String c_String = String.valueOf(c); 
+            if(c_String.equals("-1")){
+                System.out.print(a + " ^ " + b + " = " + c_double);
+            }else if(c_String.equals("0")){
+                System.out.print(a + " ^ " + b + " = Не определено");
+            }else{
+                System.out.print(a + " ^ " + b + " = " + c);
+            }
         } 
         Scan.close();
     }
@@ -35,7 +43,7 @@ public class Project001{
             }else if(answer.equals("Y")){
                 index = 1;
             }else{
-                System.out.println("Вы ввели неверное число!"); 
+                System.out.println("Вы ввели неверный символ!"); 
             }
         }
     }
@@ -54,10 +62,23 @@ public class Project001{
 
     static long exponentiation(int base,int exponent){//Вычисление степни через цикл(думал сделать через рекурсию но решил что так практичнее)
         long c_map = base;
-        for (int index = 0; index < exponent-1; index++) {
-            c_map = c_map * base;
+        if(exponent==0 & base==0){
+            return 0;
+        }else if(exponent==0){
+            return 1;
+        }else if(exponent>0){
+            for (int index = 0; index < exponent-1; index++) {
+                c_map = c_map * base;
+            }
+                return c_map;
+        }else if(exponent<0){
+            for (int index = 0; index < Math.abs(exponent)-1; index++) {
+                c_map = c_map * base;
+            }
+                c_double = 1.0/(c_map);
+                return -1;
         }
-            return c_map;
+        return 0;
     }
 
     static void get_file_data(){//Получение данных из файла и присваивание значиений глобальным переменным
@@ -91,7 +112,15 @@ public class Project001{
 
     static void put_data(){//Фунция вывода в файл output
         try(FileWriter writer = new FileWriter("output.txt")){
-            writer.write(a + " ^ " + b + " = " + c);
+            String c_String = String.valueOf(c); 
+            if(c_String.equals("-1")){
+                writer.write(a + " ^ " + b + " = " + c_double);
+            }else if(c_String.equals("0")){
+                writer.write(a + " ^ " + b + " = Не определено");
+            }else{
+                writer.write(a + " ^ " + b + " = " + c);
+            }
+            
         }catch (IOException e) {//Костыль дял IOException видел вариант через такую же весть только для всего класса, но не знаю что практичнее
             e.printStackTrace();
         }
