@@ -1,6 +1,5 @@
 package Homework;
 import java.util.Scanner;
-import java.io.File;
 import java.io.*;
 
 public class Project001{
