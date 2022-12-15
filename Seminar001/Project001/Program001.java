@@ -1,5 +1,6 @@
+public class Program001 {
+    
 // import java.util.Scanner;
-public class Program {
     public static void main(String[] args) {
         // Scanner iScanner = new Scanner(System.in);
         // boolean flag = iScanner.hasNextInt();
@@ -78,7 +79,5 @@ public class Program {
             }
         }
         return false;
-    }
+    }    
 }
-
-
