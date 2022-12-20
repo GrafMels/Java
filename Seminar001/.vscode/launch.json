@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Program002",
+            "request": "launch",
+            "mainClass": "Program002",
+            "projectName": "Seminar001_3828122d"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"

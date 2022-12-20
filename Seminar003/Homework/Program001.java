@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Program002 {
+public class Program001 {
     public static int a = 1;
     public static int b = 11;
     public static int c = 2;
@@ -109,7 +109,7 @@ public class Program002 {
             }
 
             for (int i = 0; code[i] != null; i++) {
-                if(shortestLenght == code[i].length()){
+                if(code[i].length() == shortestLenght){
                     shortestString[f] = code[i];
                     f++;
                 }
@@ -127,9 +127,12 @@ public class Program002 {
                 resultString += " = " + b;
                 code[i] = resultString;
             }
+            int maxAmount = 0;
             for (int i = 0; code[i] != null; i++) {
                 System.out.println(i+1 + ": " + code[i]);
+                maxAmount = i+1;
             }
+            System.out.printf("\nКолличество найденных вхождений: %d", maxAmount);
             System.out.println("\nСамые короткие строки: ");
             for (int i = 0; shortestString[i] != null; i++) {
                 System.out.println(i+1 + ": " + code[i]);
