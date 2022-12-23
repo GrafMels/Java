@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 /**
- * Program001
+ * 282 строки жести.
  */
 public class Program001 {
     public static String[][] array = null;
@@ -20,7 +20,7 @@ public class Program001 {
          * Нули это пустые клетки по которые нельзя ходить
          * 99 Это наикратчайщий путь.
      */
-    
+
     public static void main(String[] args) {
         inputArray();
         fillZeroArray();
@@ -39,7 +39,7 @@ public class Program001 {
     }
 
     /**
-     * Program001
+     * Функция ввода длинны матрицы на который мы будем искать путь
      */
     public static void inputArray() {
         System.out.print("Длину стороны квадрата: ");
@@ -56,7 +56,7 @@ public class Program001 {
     }
 
     /**
-     * Program001
+     * Заполнение матрицы строковыми нулями
      */
     public static void fillZeroArray() {
         for (int i = 0; i < squareLength; i++) {
@@ -67,6 +67,9 @@ public class Program001 {
         }
 
     }
+    /**
+     * Косыль заполнения пустых ячеек нулями, нужен для работы
+     */
     public static void fillZeroArrayNow() {
         for (int i = 0; i < squareLength; i++) {
             for (int j = 0; j < squareLength; j++) {
@@ -79,7 +82,7 @@ public class Program001 {
     }
 
     /**
-     * Program001
+     * Вывод матрицы в консоль
      */
     public static void outputArray() {
         System.out.print("   ");
@@ -117,10 +120,10 @@ public class Program001 {
     }
 
     /**
-     * Program001
+     * Создание тех самы пусты мест
      */
     public static void randomHoles() {
-        for (int i = 0; i < squareLength * 2; i++) {
+        for (int i = 0; i < squareLength * 8; i++) {
             int height = new Random().nextInt((squareLength - 2) + 1) + 1;
             int weight = new Random().nextInt((squareLength - 2) + 1) + 1;
             array[height][weight] = " ";
@@ -129,7 +132,7 @@ public class Program001 {
     }
 
     /**
-     * Program001
+     * Функция ввода расположения старта и финиша.
      */
     public static void inputStartFinish() {
         System.out.println("Введите точку старта по X: ");
@@ -160,7 +163,7 @@ public class Program001 {
     }
 
     /**
-     * Program001
+     * Заполнения матрицы начиная от старта волновой функцией
      */
     public static int fillmatrix() {
         int c = 1;
@@ -208,7 +211,7 @@ public class Program001 {
     }
 
     /**
-     * Program001
+     * Нахождение и закрашивание пути
      */
     public static int findingAWay() {
             temporaryStorage[0] = finish[0];
@@ -271,7 +274,9 @@ public class Program001 {
            
             return 0;
     }
-
+    /**
+     * Функция которая используется в функции findingAWay и находит является ли элемнет массива Array целочисленным числом.
+     */
     private static boolean isDigit(String s) throws NumberFormatException {
         try {
             Integer.parseInt(s);
