@@ -1,4 +1,4 @@
-package JavaInfo;
+// package JavaInfo;
 
 public class Example001 {
     public static void main(String[] args) {
