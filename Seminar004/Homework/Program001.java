@@ -123,7 +123,7 @@ public class Program001 {
      * Создание тех самы пусты мест
      */
     public static void randomHoles() {
-        for (int i = 0; i < squareLength * 8; i++) {
+        for (int i = 0; i < squareLength * 4; i++) {
             int height = new Random().nextInt((squareLength - 2) + 1) + 1;
             int weight = new Random().nextInt((squareLength - 2) + 1) + 1;
             array[height][weight] = " ";
