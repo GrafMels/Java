@@ -27,15 +27,10 @@ public class Program001 {
         randomHoles();
         inputStartFinish();
         fillmatrix();
-        outputArray();
 
-
-        System.out.println();
-        System.out.println();
-        System.out.println();
         fillZeroArrayNow();
         findingAWay();
-        outputArray();   
+        outputArray(); 
     }
 
     /**
@@ -104,7 +99,9 @@ public class Program001 {
 
             for (int j = 0; j < squareLength; j++) {
                 try {
-                    if (Integer.parseInt(array[i][j]) < 10) {
+                    if (Integer.parseInt(array[i][j]) == 0) {
+                        System.out.print("   ");
+                    }else if (Integer.parseInt(array[i][j]) < 10) {
                         System.out.print(array[i][j] + "  ");
                     } else if (Integer.parseInt(array[i][j]) >= 10) {
                         System.out.print(array[i][j] + " ");
