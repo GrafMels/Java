@@ -1,6 +1,9 @@
+
+// package Homework;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -55,7 +58,6 @@ public class View {
             while (iScane.hasNext()) {
                 count++;
                 iScane.nextLine();
-                reader.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -92,13 +94,13 @@ public class View {
     }
 
     public static void printt(LinkedList dataString) {
-        for (int index = 0; index < 200; index++) {
+        for (int index = 0; index < count; index++) {
             System.out.println(dataString.get(index));
         }
     }
 
     public static void stack() {
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < count; i++) {
             fullInform.add(String.format("%s %s %s %s %s %s %s %s %s", i + 1, surname.get(i), firstName.get(i),
                     patronymic.get(i), dayOfBirth.get(i), monthOfBirth.get(i), yearOfBirth.get(i), classNumber.get(i),
                     classLetter.get(i)));
@@ -106,42 +108,110 @@ public class View {
     }
 
     public static String whatWork() {
-        System.out.println("\n\nОтвет ввестти одной цифрой.");
-        System.out.println("Выберете действия для продолжения: \n0. Показать всех учеников\n1. Найти информацию по номеру класса\n2. Найти информацию по номеру класса и литере\n3. Найти учеников по Фамилии\n4. Найти учеников по Фамилии и Имени\n5. Найти учеников по ФИО\n6. Найти учеников по Дате рождения\n7. Удалить ученика по номеру в БД\n8. Добавить ученика по номеру в БД\n9. Сохранить БД в файлы и выйти");
-        if(scan.hasNextLine()){
+        System.out.println(
+                "Выберете действия для продолжения: \n0. Показать всех учеников\n1. Найти информацию по номеру класса\n2. Найти учеников по Фамилии\n3. Найти учеников по Фамилии и Имени\n4. Найти учеников по ФИО\n5. Найти учеников по Дате рождения\n6. Удалить ученика по номеру в БД\n7. Сохранить БД в файлы и выйти");
+        if (scan.hasNextLine()) {
             String answer = scan.nextLine();
             return answer;
-        } 
-        return "";  
-        
+        }
+        return "";
+
     }
 }
+
 /**
  * InnerView
  */
 class PrintMe {
-    public static Scanner scan = new Scanner(System.in);
+    public static Scanner scan = new Scanner(System.in, "cp866");
 
     public static Integer whatPrint() {
-        System.out.println("\n\nОтвет ввестти одной цифрой.");
-        System.out.println("Какой класс вы хотите найти");
-            if(scan.hasNextInt()){
-                Integer answer = scan.nextInt();
-                System.out.println("\n\n");
-                return answer;
-            } 
+        System.out.println("Ответ ввестти цифрами.");
+        System.out.print("Какой класс вы хотите найти: ");
+        if (scan.hasNextInt()) {
+            Integer answer = scan.nextInt();
+            return answer;
+        }
         return 0;
     }
 
     public static String whatPrint(String x) {
-        System.out.println("\n\nОтвет ввести одной Буквой");
-        System.out.println("Какой класс вы хотите найти");
-            if(scan.hasNextLine()){
-                String answer = scan.nextLine();
-                System.out.println("\n\n");
-                return answer;
-            } 
-        return "";
+        System.out.format("Введите %s: ", x);
+        String answer = scan.nextLine();
+        return answer;
     }
-    
+
+    public static String whatPrint(Integer x) {
+        System.out.println("Введите дату рождения в формате (дд мм гггг): ");
+        String answer = scan.nextLine();
+        return answer;
+    }
+
+    public static Integer whatPrint(boolean x) {
+        System.out.println("Введите id номер ученика которого надо удалить из БД: ");
+        if (scan.hasNextInt()) {
+            Integer answer = scan.nextInt();
+            return answer;
+        }
+        return 0;
+    }
+
+}
+
+class Save {
+    public static void clearFiles() {
+        try (FileWriter write = new FileWriter("Homework/DatabaseClass.txt")) {
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (FileWriter write = new FileWriter("Homework/DatabaseDate.txt")) {
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (FileWriter write = new FileWriter("Homework/DatabaseName.txt")) {
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void save() {
+        try (FileWriter writer = new FileWriter("Homework/DatabaseClass.txt")) {
+            String data = View.classNumber.get(0) + " " + View.classLetter.get(0);
+            writer.write(data);
+            for (int i = 1; i < View.count; i++) {
+                data = "\n" + View.classNumber.get(i) + " " + View.classLetter.get(i);
+                writer.write(data);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (FileWriter writer = new FileWriter("Homework/DatabaseDate.txt")) {
+            String data = View.dayOfBirth.get(0) + " " + View.monthOfBirth.get(0) + " "
+                    + View.yearOfBirth.get(0);
+            writer.write(data);
+            for (int i = 1; i < View.count; i++) {
+                data = "\n" + View.dayOfBirth.get(i) + " " + View.monthOfBirth.get(i) + " "
+                        + View.yearOfBirth.get(i);
+                writer.write(data);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (FileWriter writer = new FileWriter("Homework/DatabaseName.txt")) {
+            String data = View.surname.get(0) + " " + View.firstName.get(0) + " "
+                    + View.patronymic.get(0);
+            writer.write(data);
+            for (int i = 1; i < View.count; i++) {
+                data = "\n" + View.surname.get(i) + " " + View.firstName.get(i) + " "
+                        + View.patronymic.get(i);
+                writer.write(data);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
