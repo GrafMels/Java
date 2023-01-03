@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Program001 {
     public static int a = 1;
-    public static int b = 11;
+    public static int b = 22202;
     public static int c = 2;
     public static int d = 1;
     public static int codeSize = 1000000;//Изменяя это число можно увеличивать или уменьшат проходов по вариантам строк
@@ -10,7 +10,7 @@ public class Program001 {
     public static Scanner iScanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        String examination = "Y";
+        String examination = "N";
         for(;examination.equals("Y");){
             a = Scan("a");
             b = Scan("b");

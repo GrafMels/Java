@@ -1,9 +1,10 @@
 {
     "java.project.sourcePaths": [
+        "Seminar006/Project001",
         "Seminar006/Homework",
         "Seminar001/Project001",
         "Seminar001",
         "JavaInfo",
-        "Seminar006/Project001"
+        "Seminar003/Homework"
     ]
 }
