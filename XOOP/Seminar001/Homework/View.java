@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
- * View
+ * View w
  */
 public class View {
     public static Scanner scan = new Scanner(System.in);
