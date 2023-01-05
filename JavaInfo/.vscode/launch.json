@@ -1,0 +1,56 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Example001",
+            "request": "launch",
+            "mainClass": "Example001",
+            "projectName": "JavaInfo_ad2be5bd"
+        },
+        {
+            "type": "java",
+            "name": "Launch Example002",
+            "request": "launch",
+            "mainClass": "Example002",
+            "projectName": "JavaInfo_ad2be5bd"
+        },
+        {
+            "type": "java",
+            "name": "Launch Example003",
+            "request": "launch",
+            "mainClass": "Example003",
+            "projectName": "JavaInfo_ad2be5bd"
+        },
+        {
+            "type": "java",
+            "name": "Launch Example004",
+            "request": "launch",
+            "mainClass": "Example004",
+            "projectName": "JavaInfo_ad2be5bd"
+        },
+        {
+            "type": "java",
+            "name": "Launch Example005",
+            "request": "launch",
+            "mainClass": "Example005",
+            "projectName": "JavaInfo_ad2be5bd"
+        },
+        {
+            "type": "java",
+            "name": "Launch Example006",
+            "request": "launch",
+            "mainClass": "Example006",
+            "projectName": "JavaInfo_ad2be5bd"
+        }
+    ]
+}
