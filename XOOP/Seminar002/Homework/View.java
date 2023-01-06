@@ -7,7 +7,7 @@ public class View {
     public static Scanner scan = new Scanner(System.in, "cp866");
 
     public static String inputNexusName() {
-        System.out.print("Введите имя того чьих родителей хотите указать: ");
+        System.out.print("Введите имя младшего в семье: ");
         if (scan.hasNextLine()) {
             String name = scan.nextLine();
             return name;
@@ -16,7 +16,7 @@ public class View {
     }
 
     public static String inputMotherName() {
-        System.out.print("Введите имя мамы: ");
+        System.out.print("Введите имя его мамы: ");
         if (scan.hasNextLine()) {
             String name = scan.nextLine();
             return name;
@@ -25,7 +25,7 @@ public class View {
     }
 
     public static String inputFatherName() {
-        System.out.print("Введите имя папы: ");
+        System.out.print("Введите имя его папы: ");
         if (scan.hasNextLine()) {
             String name = scan.nextLine();
             return name;
@@ -37,7 +37,7 @@ public class View {
         System.out.print("Есть ли у него братья/сёстры?(Y/N): ");
         if (scan.hasNextLine()) {
             String condition = scan.nextLine();
-            if (condition.equals("Y")) {
+            if (condition.equals("Y") | condition.equals("y")) {
                 return true;
             } else {
                 return false;
@@ -51,7 +51,7 @@ public class View {
         System.out.print("Есть ли у него ещё братья/сёстры?: ");
         if (scan.hasNextLine()) {
             String condition = scan.nextLine();
-            if (condition.equals("Y")) {
+            if (condition.equals("Y") | condition.equals("y")) {
                 return true;
             } else {
                 return false;
@@ -63,7 +63,7 @@ public class View {
 
     public static String inputSiblingName() {
         System.out.print("Как зовут брата/сёстру?: ");
-        if (scan.hasNextLine()) {
+        for (; scan.hasNextLine();) {
             String name = scan.nextLine();
             return name;
         }
@@ -72,16 +72,43 @@ public class View {
     }
 
     public static Integer choice() {
-        System.out.println("\nВведите индекст того с кого хотите продолжить(Введите 0 если хотите выйти): ");
+        System.out.println("\nВведите индекст того с кого хотите продолжить(Введите 0 если хотите перейти к поиску): ");
         Nexus.getIndex();
         System.out.print(": ");
-        if (scan.hasNextLine()) {
+        for (; scan.hasNextInt();) {
             String name = scan.nextLine();
             return Integer.valueOf(name);
         }
         return 0;
     }
 
+    public static Integer newSeach() {
+        for (int i = 0; i < Controller.name.size(); i++) {
+            System.out.printf("%d: %s\n", i, Controller.family.get(i));
+        }
+        System.out.print("\nВведите индекст того чьих родственников хотите найти: ");
+        for (; scan.hasNextInt();) {
+            String name = scan.nextLine();
+            return Integer.valueOf(name);
+        }
+        return 0;
+    }
+
+    public static Integer menuSeacheching() {
+        System.out.println(
+                "1: Найти родных сестёр/братьев\n2: Найти родителей супруги/супруга\n3: Найти всех дядь и тёть\n4: Сохранить, выйти и показать всю семью.");
+        String name = "";
+        for (; scan.hasNextInt();) {
+            name = scan.nextLine();
+            return Integer.valueOf(name);
+        }
+        return 0;
+
+    }
+
+    /**
+     * 
+     */
     public static void saveInFile() {
         try (FileWriter writer = new FileWriter("DataFamily.txt")) {
             String data = "Член семьи (Мама ^ Папа)";

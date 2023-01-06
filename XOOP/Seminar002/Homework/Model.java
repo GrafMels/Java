@@ -92,4 +92,71 @@ public class Model {
         }
     }
 
+    public static int[] siblingsSeach(int index) {
+        int c = 0;
+        for (int i = 0; i < Controller.name.size(); i++) {
+            if (Controller.name.get(i).kinship.get(i + 0.1) == Controller.name.get(i).kinship.get(index + 0.1)
+                    & Controller.name.get(i).kinship.get(i + 0.2) == Controller.name.get(i).kinship.get(index + 0.2)) {
+                c++;
+            }
+        }
+        int siblings[] = new int[c];
+        int count = 0;
+        for (int i = 0; i < Controller.name.size(); i++) {
+            if (Controller.name.get(i).kinship.get(i + 0.1) == Controller.name.get(i).kinship.get(index + 0.1)
+                    & Controller.name.get(i).kinship.get(i + 0.2) == Controller.name.get(i).kinship.get(index + 0.2)) {
+                siblings[count] = i;
+                count++;
+            }
+        }
+        return siblings;
+    }
+
+    public static int[] siblingsSeach(double x) {
+        int index = 0;
+        for (int i = 0; i < Controller.name.size(); i++) {
+            if (Controller.name.get(i).kinship.get(x).equals(Controller.family.get(i))) {
+                index = i;
+            }
+        }
+
+        int c = 0;
+        for (int i = 0; i < Controller.name.size(); i++) {
+            if (Controller.name.get(i).kinship.get(i + 0.1) == Controller.name.get(i).kinship.get(index + 0.1)
+                    & Controller.name.get(i).kinship.get(i + 0.2) == Controller.name.get(i).kinship.get(index + 0.2)) {
+                c++;
+            }
+        }
+        int siblings[] = new int[c];
+        int count = 0;
+        for (int i = 0; i < Controller.name.size(); i++) {
+            if (Controller.name.get(i).kinship.get(i + 0.1) == Controller.name.get(i).kinship.get(index + 0.1)
+                    & Controller.name.get(i).kinship.get(i + 0.2) == Controller.name.get(i).kinship.get(index + 0.2)) {
+                siblings[count] = i;
+                count++;
+            }
+        }
+        return siblings;
+    }
+
+    public static int spousesParents(int index) {
+        for (int i = 0; i < Controller.name.size(); i++) {
+            if (Controller.family.get(index).equals(Controller.name.get(i).kinship.get(i + 0.2))) {
+                for (int j = 0; j < Controller.name.size(); j++) {
+                    if (Controller.family.get(j).equals(Controller.name.get(i).kinship.get(i + 0.1))) {
+                        return j;
+                    }
+                }
+            }
+            if (Controller.family.get(index).equals(Controller.name.get(i).kinship.get(i + 0.1))) {
+                for (int j = 0; j < Controller.name.size(); j++) {
+                    if (Controller.family.get(j).equals(Controller.name.get(i).kinship.get(i + 0.2))) {
+                        return j;
+                    }
+                }
+            }
+        }
+        return 0;
+    }
+
 }
