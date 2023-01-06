@@ -14,9 +14,7 @@ public class Controller {
             index = View.choice();
         }
         index = 1;
-        while (index != 0) {
 
-        }
         System.out.println(family);
         View.saveInFile();
     }
