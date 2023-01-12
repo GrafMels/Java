@@ -8,7 +8,7 @@ public class Program {
 
     Word document = new Word();
     document.setModel(new StringFormat());
-    document.appendData("Одеяло\nУбежало,\nУлетела простыня,\nИ подушка,\nКак лягушка,\nУскакала от меня.",
+    document.appendData("Eдеяло\nУбежало,\nУлетела простыня,\nИ подушка,\nКак лягушка,\nУскакала от меня.",
         header);
 
     document.setFormat(new XmlFormat());
@@ -96,7 +96,7 @@ class MdFormat implements TitleFormat {
   @Override
   public void print(String text, String header) {
     try (FileWriter writer = new FileWriter("File.md")) {
-      writer.write(String.format("<# %s>\n", header));
+      writer.write(String.format("# %s\n", header));
       writer.write(text);
     } catch (IOException e) {
       e.printStackTrace();

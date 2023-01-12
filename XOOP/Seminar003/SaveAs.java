@@ -37,7 +37,7 @@ class Document {
     Button button;
 
     public void setWorker(int age, int salary, String name) {
-        Worker.age = age;
+        // Worker.age = age;
     }
 
     public void SaveAs() {
