@@ -1,86 +1,63 @@
-import java.util.ArrayList;
-
 public class Program {
 
     public static void main(String[] args) {
-        Chat gb = new Chat();
+        Chat mk = new Chat("Монтеки");
 
-        User client1 = new User("Маша", gb, "gb");
-        User client2 = new User("Вася", gb, "gb");
-        User client4 = new User("Валентин", gb, "gb");
+        User client1 = new User("Бенволио");
+        User client2 = new User("Меркуцио");
+        User client4 = new User("Ромео");
 
-        gb.appendClient(client1, "gb");
-        gb.appendClient(client2, "gb");
-        gb.appendClient(client4, "gb");
+        mk.appendClient(client1);
+        mk.appendClient(client2);
+        client1.sendMsg("Ох уж эти Капулети", mk);
+        client2.sendMsg("Да ты прав", mk);
+        mk.appendClient(client4);
+        client2.sendMsg("Да будет вам, нормальные они", mk);
 
-        client2.sendMsg("Ку-Ку!", "gb");
+        User client3 = new User("Синьора Монтеки");
+        mk.appendClient(client3);
+        mk.getAdmin(client3);
 
-        User client3 = new User("Агаповна", gb, "gb");
-        gb.appendClient(client3, "gb");
+        client3.sendMsg("О чём ты Ромео?", mk);
 
-        client3.sendMsg("hello world!", "gb");
+        Chat kl = new Chat("work");
 
-        Chat work = new Chat();
+        User client5 = new User("Синьор Капулетти");
+        kl.appendClient(client5);
+        kl.getAdmin(client5);
 
-        work.appendClient(client1, "work");
-        work.appendClient(client3, "work");
-        User client5 = new User("Петрович", work, "work");
-        work.appendClient(client5, "work");
+        User client6 = new User("Тибальт");
+        kl.appendClient(client6);
 
-        client1.sendMsg("Всем, привет!", "gb");
+        client5.sendMsg("Что у вас случилось Тибальт", kl);
 
-        System.out.println("\n\n");
+        System.out.println();
 
-        client1.sendMsg("Вот это поворот", "work");
+        client6.sendMsg("Опять с Монтеками дрался", kl);
 
-    }
-}
+        User client7 = new User("Джульета");
+        kl.appendClient(client7);
+        kl.appendClient(client4);
 
-class User {
-    String name;
-    private Chatroom chatroom;
-    private String chatRoomName;
+        client7.sendMsg("Здарствуйте папа и братец", kl);
+        client4.sendMsg("Здрасте", kl);
+        client5.sendMsg("А этот что тут делает? Иди прочь!", kl);
 
-    public User(String name, Chatroom chatroom, String chatRoomName) {
-        this.name = name;
-        this.chatroom = chatroom;
-        this.chatRoomName = chatRoomName;
+        kl.deleteWithouChat(client4, client5);
 
-    }
+        client2.sendMsg("sss", kl);
 
-    void printMessage(String msg, String chatRoomName) {
-        System.out.printf("[%s] %s: %s\n", chatRoomName, name, msg);
-    }
+        System.out.println();
 
-    void sendMsg(String text, String chatRoomName) {
-        chatroom.sendMessage(text, this, chatRoomName);
-    }
-}
+        kl.getAllChatUsers(client5);
 
-interface Chatroom {
-    void sendMessage(String msg, User user, String chatRoomName);
+        System.out.println();
 
-    void appendClient(User user, String chatRoomName);
-}
+        mk.getAllChatUsers(client5);
 
-class Chat implements Chatroom {
-
-    ArrayList<User> users = new ArrayList<>();
-
-    @Override
-    public void sendMessage(String text, User me, String chatRoomName) {
-
-        for (User user : users) {
-            if (user.name != me.name) {
-                user.printMessage(text, chatRoomName);
-            }
-        }
-    }
-
-    @Override
-    public void appendClient(User client, String chatRoomName) {
-        System.out.printf("\n >>> поключается к беседе [%s]: %s\n", chatRoomName, client.name);
-        users.add(client);
+        mk.getAllChatUsers(client3);
+        mk.getChatHistory(client3);
+        kl.getChatHistory(client5);
 
     }
 }

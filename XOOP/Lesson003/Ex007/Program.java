@@ -10,7 +10,14 @@ public class Program {
         latte.addComponent(new Water("вода1"));
         latte.addComponent(new Water("вода2"));
         for (var ingredient : latte) {
-            System.err.println(ingredient);
+            System.out.println(ingredient);
+        }
+
+        Coffee esprexo = new Coffee();
+        esprexo.addComponent(new Milk("Moloko"));
+        esprexo.addComponent(new Water("вода"));
+        for (var ingredient : esprexo) {
+            System.out.println(ingredient);
         }
     }
 }
