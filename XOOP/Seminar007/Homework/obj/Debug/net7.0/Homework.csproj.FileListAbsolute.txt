@@ -1,0 +1,15 @@
+C:\G\Java\XOOP\Seminar007\Homework\bin\Debug\net7.0\Homework.exe
+C:\G\Java\XOOP\Seminar007\Homework\bin\Debug\net7.0\Homework.deps.json
+C:\G\Java\XOOP\Seminar007\Homework\bin\Debug\net7.0\Homework.runtimeconfig.json
+C:\G\Java\XOOP\Seminar007\Homework\bin\Debug\net7.0\Homework.dll
+C:\G\Java\XOOP\Seminar007\Homework\bin\Debug\net7.0\Homework.pdb
+C:\G\Java\XOOP\Seminar007\Homework\obj\Debug\net7.0\Homework.csproj.AssemblyReference.cache
+C:\G\Java\XOOP\Seminar007\Homework\obj\Debug\net7.0\Homework.GeneratedMSBuildEditorConfig.editorconfig
+C:\G\Java\XOOP\Seminar007\Homework\obj\Debug\net7.0\Homework.AssemblyInfoInputs.cache
+C:\G\Java\XOOP\Seminar007\Homework\obj\Debug\net7.0\Homework.AssemblyInfo.cs
+C:\G\Java\XOOP\Seminar007\Homework\obj\Debug\net7.0\Homework.csproj.CoreCompileInputs.cache
+C:\G\Java\XOOP\Seminar007\Homework\obj\Debug\net7.0\Homework.dll
+C:\G\Java\XOOP\Seminar007\Homework\obj\Debug\net7.0\refint\Homework.dll
+C:\G\Java\XOOP\Seminar007\Homework\obj\Debug\net7.0\Homework.pdb
+C:\G\Java\XOOP\Seminar007\Homework\obj\Debug\net7.0\Homework.genruntimeconfig.cache
+C:\G\Java\XOOP\Seminar007\Homework\obj\Debug\net7.0\ref\Homework.dll
