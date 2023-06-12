@@ -1,0 +1,2 @@
+javac -sourcepath ./src -d out src/ru/gb/PointOfEntry/Main.java
+java -classpath ./out ru.gb.PointOfEntry.Main
