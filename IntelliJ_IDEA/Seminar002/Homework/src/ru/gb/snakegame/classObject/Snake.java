@@ -1,4 +1,6 @@
-package ru.gb.snakegame;
+package ru.gb.snakegame.classObject;
+
+import ru.gb.snakegame.game.GameSnake;
 
 import java.awt.*;
 import java.util.LinkedList;

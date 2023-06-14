@@ -1,4 +1,4 @@
-package ru.gb.snakegame;
+package ru.gb.snakegame.classObject;
 
 import java.awt.*;
 
